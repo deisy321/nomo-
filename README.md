@@ -1,4 +1,4 @@
-# Documentação da Linguagem NOMO
+# Documentação da Linguagem NOMO  (New Object Modeling Operator)
 
 ## Visão Geral
 
