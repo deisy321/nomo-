@@ -1,25 +1,31 @@
 #include <iostream>
-#include <vector>
-#include <string>
 #include <unordered_map>
+#include <vector>
+#include <sstream>
+#include <string>
 #include "interpretador.h"
 
 int main() {
     std::unordered_map<std::string, int> variaveis;
+    std::vector<Tarefa> tarefas;
+    std::unordered_map<std::string, Produto> estoque;
 
-    // Aqui você escreve seus comandos NOMO como se fosse um script
-    std::vector<std::string> comandos = {
-        "pass",
-        "definir idade como 25",
-        "eco Minha idade é @idade",
-        "calcular 10 + 5",
-        "eco Resultado da soma é @resultado",
-        "espera 2",
-        "eco Fim do script!"
-    };
+    std::string entrada;
+    std::cout << "Calculadora NOMO - Digite uma expressão (ex: 3 + 5), ou 'sair' para finalizar.\n";
 
-    for (const std::string& cmd : comandos) {
-        interpretar_comando(cmd, variaveis);
+    while (true) {
+        std::cout << "Digite a expressão: ";
+        std::getline(std::cin, entrada);
+
+        if (entrada == "sair") {
+            break;  // Encerra o programa
+        }
+
+        // Adiciona o comando "calcular" ao que foi digitado
+        std::string comando = "calcular " + entrada;
+        
+        // Interpreta o comando
+        interpretar_comando(comando, variaveis, tarefas, estoque);
     }
 
     return 0;

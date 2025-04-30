@@ -3,7 +3,23 @@
 
 #include <string>
 #include <unordered_map>
+#include <vector>
 
-void interpretar_comando(const std::string& linha, std::unordered_map<std::string, int>& variaveis);
+struct Tarefa {
+    std::string descricao;
+    bool concluida;
+};
 
-#endif  // INTERPRETADOR_H
+struct Produto {
+    std::string nome;
+    int quantidade;
+};
+
+void interpretar_comando(
+    const std::string& linha,
+    std::unordered_map<std::string, int>& variaveis,
+    std::vector<Tarefa>& tarefas,
+    std::unordered_map<std::string, Produto>& estoque
+);
+
+#endif
